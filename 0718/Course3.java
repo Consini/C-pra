@@ -1,8 +1,22 @@
 import java.util.Arrays;
 public class Course3{
 	public static void main(String[] args){
-		int[] a = {1,2,3,4,5,6,7,8,9,10};
-		System.out.println(binarySearch(a,99));
+		int[] x = null ;
+        int[] temp = null ; // 声明对象
+        x = new int[3] ;
+		System.out.println(x.length) ;// 3
+		x[0] = 1 ; // 数组第一个元素
+		x[1] = 2 ; // 数组第二个元素
+		x[2] = 3 ; // 数组第三个元素
+		for (int i = 0; i<x.length ; i++) {
+			System.out.print(x[i]+" ") ; // 通过循环控制索引下标更改,输出为1 2 3
+		  }
+		temp = x ; //如果要发生引用传递，不要出现[]
+		temp[0] = 55 ; // 修改数据
+		System.out.println(x[0]) ;//55
+		
+		// int[] a = {1,2,3,4,5,6,7,8,9,10};
+		// System.out.println(binarySearch(a,99));
         //swap(a[0],a[3]);//错误的
 		//swap(a,0,3);		
 		//System.out.println(indexOf(a,3));
@@ -11,7 +25,7 @@ public class Course3{
 			// System.out.print(b[i]+" ");
 		// }
 	}
-	//二分查找,前提是数组必须是有序的
+	二分查找,前提是数组必须是有序的
 	public static int binarySearch(int[] a,int v){
 		int left = 0;
 		int right = a.length-1;
