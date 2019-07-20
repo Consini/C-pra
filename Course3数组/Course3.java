@@ -1,6 +1,18 @@
 import java.util.Arrays;
 public class Course3{
-	public static void main(String[] args){
+	public static void main(String[] args){		
+		int[] a = {1,2,3,4,5,6,7,8,9,10};
+		System.out.println(binarySearch1(a,0));
+		System.out.println(binarySearch2(a,2));
+		// swap(a,0,3);	//swap(a[0],a[3]);//错误的	
+		// System.out.println(indexOf(a,3));
+		// int[] b=copyOf(a,7);
+		// for(int i=0;i<b.length;i++){
+			// System.out.print(b[i]+" ");
+		// }
+	}
+	//数组引用
+	public static void Fun(){
 		int[] x = null ;
         int[] temp = null ; // 声明对象
         x = new int[3] ;
@@ -14,55 +26,39 @@ public class Course3{
 		temp = x ; //如果要发生引用传递，不要出现[]
 		temp[0] = 55 ; // 修改数据
 		System.out.println(x[0]) ;//55
-		
-		// int[] a = {1,2,3,4,5,6,7,8,9,10};
-		// System.out.println(binarySearch(a,99));
-        //swap(a[0],a[3]);//错误的
-		//swap(a,0,3);		
-		//System.out.println(indexOf(a,3));
-		//int[] b=copyOf(a,7);
-		// for(int i=0;i<b.length;i++){
-			// System.out.print(b[i]+" ");
-		// }
 	}
-	二分查找,前提是数组必须是有序的
-	public static int binarySearch(int[] a,int v){
+	//二分查找,前提是数组必须是有序的
+	public static int binarySearch1(int[] a,int v){
 		int left = 0;
 		int right = a.length-1;
 		int mid = 0;		
-		//左闭右闭
-		    while(left <= right ){
-			     mid = left + (right - left)/2;
-			     if(a[mid] == v){
-				    return mid;
-			     }else if(a[mid] > v){
-				    right = mid - 1;
-			     }else{
-				     left = mid + 1;
-			 }
-		}		
-		//左开右闭
-		    // while(left <= right ){
-			     // mid = left + (right - left)/2;
-			     // if(a[mid] == v){
-				    // return mid;
-			     // }else if(a[mid] > v){
-				    // right = mid - 1;
-			     // }else{
-				     // left = mid ;
-			 // }
-		// }
 		//左闭右开
-		// while(left < right ){
-			// mid = left + (right - left)/2;
-			// if(a[mid] == v){
-				// return mid;
-			// }else if(a[mid] > v){
-				// right = mid;
-			// }else{
-				// left = mid + 1;
-			// }
-		// }
+		while(left < right){
+			mid = left + (right - left)/2;
+			if(a[mid] == v){
+				return mid;
+			}else if(a[mid] > v){
+				right = mid;
+			}else{
+				left = mid + 1;
+			}
+		}
+		return -1;
+	}
+	public static int binarySearch2(int[] a, int v) {
+		int left = 0;
+		int right = a.length - 1;
+		//左闭右闭
+		while (left <= right) {
+			int mid = (left + right) / 2;
+			if (v == a[mid]) {
+				return mid;
+			} else if (v < a[mid]) {
+				right = mid - 1;
+			} else {
+				left = mid + 1;
+			}
+		}		
 		return -1;
 	}
 	//fill(int[] a,int val)给定知道值val将数组每个元素置为val
