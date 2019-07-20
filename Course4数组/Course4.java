@@ -6,23 +6,28 @@ public class Course4{
 		// for(int i = 0;i < a.length;i++){
 			// System.out.print(a[i]+" ");
 		// }
+		
 		// System.out.println();
 		// bubbleSort2(a);
 		// for(int i = 0;i < a.length;i++){
 			// System.out.print(a[i]+" ");
 		// }
 		// System.out.println();
-		//System.out.println(average(a));
-		// int[]  b=rotating(a,3);
+		
+		//System.out.println(average(a
+		
+		//int[]  c = rotating(a,3);
 		// for(int i=0;i<a.length;i++){
 			// System.out.print(a[i]+" ");
 		// }
+		
 		//System.out.println(Arrays.toString(rotating(a,3)));
-		int[] b = sortArrayByParity2(a);
-		for(int i = 0;i < b.length ; i++){
-			System.out.print(b[i]+" ");
-		}
-		System.out.println();
+		
+		// int[] b = sortArrayByParity2(a);
+		// for(int i = 0;i < b.length ; i++){
+			// System.out.print(b[i]+" ");
+		// }
+		// System.out.println();
 	}
 	//偶数放在前面，奇数放在后面
 	//从前面找奇数，后面找偶数，找到交换。直至left>=right
@@ -86,6 +91,8 @@ public class Course4{
 	//冒泡排序，从后往前找小数放在前面
 	public static void bubbleSort2(int[] a){
 		for(int i = 0;i < a.length;i++){
+			//有序区间[0,i)
+			//无序区间[i,a.length)
 			for(int j = a.length - 1;j > i ;j--){
 				if(a[j-1] > a[j]){
 				swap(a,j-1,j);	
@@ -96,9 +103,14 @@ public class Course4{
 	//冒泡排序（减治算法）,从前往后找大数放在后面
 	public static void bubbleSort1(int[] a){
 		for(int i = 0;i < a.length;i++){
+			//无序区间[0,a.length-i)
+			//有序区间[a.length-i,a.length)
+			boolean flag = true;
+			//如果一次都没有交换，则原数组就是有序的
 			for(int j = 0;j < a.length - i - 1;j++){
 				if(a[j] > a[j+1]){
 				swap(a,j,j+1);
+				flag = false;
 				}				
 			}
 		}
