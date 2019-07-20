@@ -30,7 +30,7 @@ public class Time {
 		this.minute = minute;
 		this.second = second;
 	}
-	//计算之前的
+	//计算之后的
 	public Time after(int seconds){
 		second += seconds;
 		while(second > 59){
@@ -46,7 +46,7 @@ public class Time {
 		}
 		return this;
 	}
-	//计算之后的
+	//计算之前的
 	public Time before(int seconds){
 		second += seconds;
 		while (second < 0){
