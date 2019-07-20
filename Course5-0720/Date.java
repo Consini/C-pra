@@ -57,7 +57,7 @@ public class Date {
 		return false;
 	}
 	
-	//计算给定日期之后adays天的日期
+	//计算给定日期之后days天的日期
 	public	Date after(int days){
 		day += days;
 		while( day > calcDaysOfMonth(year,month)){
@@ -75,12 +75,12 @@ public class Date {
 	public Date before(int days){
 		day += days;
 		while(day < 1){
-			day += calcDaysOfMonth(year,month);
-			month--;
+			month--;			
 			if(month < 1){
 				month = 12;
 				year--;
 			}
+			day += calcDaysOfMonth(year,month);//放在后面，day加的是前一个月份的天数，
 		}
 		return this;
 	}
@@ -91,9 +91,10 @@ public class Date {
 
 	public static void main(String[] args){
 		Date d = new Date(2019, 12, 1);
-		Date r = d.after(100);
+		Date d2 = new Date(2020,1,23);
+		Date r = d.after(99);
 		System.out.println(r.toString());
-		// r = d.before(-80);		
-		// System.out.println(r.toString());
+		r = d2.before(-80);		
+		System.out.println(r.toString());
 	}
 }
