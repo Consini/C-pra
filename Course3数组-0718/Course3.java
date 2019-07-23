@@ -30,7 +30,7 @@ public class Course3{
 	//二分查找,前提是数组必须是有序的
 	public static int binarySearch1(int[] a,int v){
 		int left = 0;
-		int right = a.length-1;
+		int right = a.length;
 		int mid = 0;		
 		//左闭右开
 		while(left < right){
