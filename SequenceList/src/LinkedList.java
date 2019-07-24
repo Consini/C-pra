@@ -24,7 +24,7 @@ public class LinkedList {//链表
     public static Node headInsert(Node head,int val){//头插
         // 1. 结点
         Node node = new Node(val);
-        // 2. 让原来的 head 成为 node 的下一个结点
+        // 2. 让 head 成为 node 的下一个结点
         node.next = head;
         // 3. 更新第一个结点的引用
         return node;
@@ -33,13 +33,16 @@ public class LinkedList {//链表
     public static Node tailInsert(Node head,int val){//尾插
         Node node = new Node(val);
         if(head == null){
+            //为空，则让 node 成为 head 的下一个结点
             head.next = node;
             //return node;
         }else{
             Node last= head;
+            //last 指向链表的最后一个元素
             while(last.next != null){
                 last = last.next;
             }
+            //让 node 成为 last 的下一个结点
             last.next = node;
         }
         return head;
@@ -62,10 +65,12 @@ public class LinkedList {//链表
         if(head.next == null){
             return null;
         }else{
+            //找出倒数第二个结点
             Node second = head;
             while(second.next.next != null){
                 second = second.next;
             }
+            //让倒数第二个结点指向 null，就是删除了最后一个结点
             second.next = null;
             return head;
         }
