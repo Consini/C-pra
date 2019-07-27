@@ -6,6 +6,7 @@
  * @Time: 21:02
  * @Version 1.0
  **/
+
 class ListNode{
     public int val;
     public ListNode next;
@@ -61,20 +62,29 @@ public class review {
 
     public ListNode FindKthToTail(ListNode head,int k) {
         ListNode prev = head;
-        while(k != 0){
-            if(prev == null){
+        while (k != 0) {
+            k--;
+            prev = prev.next;
+            if (prev == null) {
+                if (k == 0) {
+                    return head;
+                } else {
+                    return null;
+                }
+            }
+            /*if( prev == null){
                 return null;
             }
             prev = prev.next;
-            k--;
+            k--;*/
         }
-        ListNode cur = head;
-        while(prev != null){
-            prev = prev.next;
-            cur = cur.next;
+            ListNode result = head;
+            while (prev != null) {
+                prev = prev.next;
+                result = result.next;
+            }
+            return result;
         }
-        return cur;
-    }
 
     /*链表分割
 题目描述：编写代码，以给定值x为基准将链表分割成两部分，
