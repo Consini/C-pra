@@ -1,7 +1,7 @@
 /**
  * @ClassName PalindNum
  * @Description:
- * @Author: 寇明珠
+ * @Author: 
  * @Date: 2019/8/12
  * @Time: 20:29
  * @Version 1.0
