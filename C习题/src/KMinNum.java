@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * @ClassName KMinNum
  * @Description:
@@ -6,27 +8,22 @@
  * @Time: 22:57
  * @Version 1.0
  **/
+import java.util.Arrays;
+
 public class KMinNum {
-    public static void minNumOfK(int[] a,int k){
-        int min = a[0];
-        int j = -1;
-        while(k != 0){
-            min = a[0];
-            for(int i = 0;i < a.length;i++){
-                if(j != i) {
-                    if (a[i] <= min) {
-                        min = a[i];
-                        j = i;
-                    }
-                }
-            }
-            System.out.println(min);
-            k--;
+    public static void minNumOfK1(int[] a,int k){
+        Arrays.sort(a);
+        for(int i = 0;i < k;i++){
+            System.out.print(a[i]+" ");
         }
+        System.out.println();
+    }
+    public static void minNumOfK2(int[] a,int k){
 
     }
     public static void main(String[] args) {
-        int[] a = {2,5,8,9,0,1,4,6,7,2};
-        minNumOfK(a,3);
+        int[] a = {2, 4, 1, 7, 9, 0, 6, 8, 3};
+        minNumOfK2(a,3);
+        minNumOfK1(a,3);
     }
 }

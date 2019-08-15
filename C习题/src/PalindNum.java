@@ -11,7 +11,7 @@ public class PalindNum {
         if(x < 11){
             return false;
         }
-        int[] a ;
+        int[] a = new int[10];
         int j = 0;
         while(x != 0){
             a[j] = x % 10;

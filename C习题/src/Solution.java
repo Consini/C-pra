@@ -6,6 +6,8 @@
  * @Time: 12:19
  * @Version 1.0
  **/
+import com.sun.xml.internal.bind.marshaller.NoEscapeHandler;
+
 import java.util.Arrays;
 public class Solution {
     public static int MoreThanHalfNum_Solution(int[] array){
@@ -22,8 +24,10 @@ public class Solution {
         }
         return 0;
     }
+
     public static void main(String[] args) {
-        int a[] = {1,2,3,2,2,2,5,4,2};
-        System.out.println(MoreThanHalfNum_Solution(a));
+//        int a[] = {1,2,3,2,2,2,5,4,2};
+//        System.out.println(MoreThanHalfNum_Solution(a));
+
     }
 }
