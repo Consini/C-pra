@@ -1,7 +1,7 @@
 /**
  * @ClassName PalindNum
  * @Description:
- * @Author: 
+ * @Author:
  * @Date: 2019/8/12
  * @Time: 20:29
  * @Version 1.0
