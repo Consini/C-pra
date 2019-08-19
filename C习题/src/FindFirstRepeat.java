@@ -6,17 +6,21 @@
  **/
 public class FindFirstRepeat {
     public static char findFirstRepeat(String A, int n) {
-        int[] a = new int[128];
-        int i = 0;
-        for(i = 0 ;i < n;i++){
-            a[A.charAt(i)]++;
+        // write code here
+        //boolean arr[256] = {false};
+        char[] a = new char[256] ;
+        if(n == 0 ){
+            return '\n';
         }
-        for(i = 0;i <n;i++){
-            if(a[A.charAt(i)] > 1){
-                return A.charAt(i);
+        int i = 0;
+        for(i = 0;i < n ;i++){
+            if( a[A.charAt(i) - '0'] != '0' ){
+                a[A.charAt(i)-'0'] = 1;
+            }else{
+                break;
             }
         }
-        return '\n';
+        return A.charAt(i);
     }
     public static void main(String[] args) {
         String s = "qywyer23tdd";
