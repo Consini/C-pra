@@ -20,7 +20,7 @@ public class DeletePattern {
        }
        return a;
     }
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         String a = "abcdeabc";
         char[] a1 = a.toCharArray();
         String b = "abc";
