@@ -9,7 +9,8 @@ import java.util.concurrent.RecursiveTask;
 public class DeleteSpace {
     /*delete1 : 这是我自己想这个问题是刚开始的思路以及代码，解决问题的同时也暴露出我思路上的问题。虽然比较麻烦，但还是保留下来。
     *不用tirm（）方法，去除前后空格
-    *再处理中间字符串：若该字符不为空格，直接存入 ret 中
+    *再处理中间字符串：若该字符已经为空，直接返回null
+    * 若该字符不为空格，直接存入 ret 中
     *若该字符的下一个字符是空格，先存入空格，保证中间有一个空格。
     * 令指针指向该空格，指针向后移找到下一个不为空格的字符。
     * 需要注意的是遍历字符串时已经设置了 i++，在找到下一个不为空格的字符后，若直接继续循环，会使 i 指向该字符的下一个，
@@ -22,12 +23,15 @@ public class DeleteSpace {
         int j = s.length() - 1 ;
         while(s.charAt(i) == ' '){//找到第一个不为空格字符的位置
             i++;
+            if(i == j){//如果 i == j，说明该字符串全为空格，那么直接返回 null
+                return null;
+            }
         }
         while(s.charAt(j) == ' '){//找到最后一个不为空格的位置
             j--;
         }
-        s = s.substring(i,j + 1);//substring（int beginIndex, int endIndex）方法：返回一个字符串，该字符串是此字符串的子字符串。
-                                 //返回从beginIndex到endIndex的内容，但是endIndex不包含在内，所以要加 1
+        s = s.substring(i, j + 1);//substring（int beginIndex, int endIndex）方法：返回一个字符串，该字符串是此字符串的子字符串。
+            //返回从beginIndex到endIndex的内容，但是endIndex不包含在内，所以要加 1
         StringBuilder ret = new StringBuilder();
         i = 0;
         for(i = 0;i < s.length() - 1;i++){
@@ -50,6 +54,9 @@ public class DeleteSpace {
 
     public static String delete2(String s){
         s = s.trim();//s.trim()方法的作用是去除首尾空格
+        if("".equals(s)){//判断删除首尾空格后字符串是否已经为空
+            return null;
+        }
         StringBuilder ret = new StringBuilder();
         int i = 0;
         for( i = 0;i < s.length() - 1;i++){
@@ -64,8 +71,11 @@ public class DeleteSpace {
         return ret.toString();
     }
     public static void main(String[] args) {
-        String s = "  add dwq wd       fed    j       ";
+        String s = "    ";
+        String s1 = "   rtt  wewqeq  e e     ";
         System.out.println(delete1(s));
-        System.out.println(delete2(s));
+        System.out.println(delete1(s));
+        System.out.println(delete2(s1));
+        System.out.println(delete2(s1));
     }
 }
