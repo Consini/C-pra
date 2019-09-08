@@ -7,6 +7,9 @@
 class Node{
     int value;
     Node next;
+    Node(int value){
+        this.value = value;
+    }
 }
 
 public class test1 {
@@ -74,7 +77,7 @@ public class test1 {
     public static Node merge2(Node h1, Node h2){
         Node p1 = h1;
         Node p2 = h2;
-        Node result = new Node();
+        Node result = new Node(1);
         Node last = result;
         while(p1 != null && p2 != null){
             if(p1.value <= p2.value){
@@ -88,7 +91,48 @@ public class test1 {
         }
         return result.next;
     }
+    // 删除有序链表中重复的结点,留结点
+    public static Node deleteDuplicated1(Node head){
+        if(head == null){
+            return null;
+        }
+        Node p1 = head;
+        Node p2 = head.next;
+        while(p2 != null){
+            if(p1.value == p2.value){
+                while(p1.value == p2.value && p2 != null){
+                    p2 = p2.next;
+                }
+                p1.next = p2;
+            }
+            if(p2 != null) {
+                p1 = p2;
+                p2 = p2.next;
+            }
+        }
+        return head;
+    }
+    // 删除重复结点2，不留相同的
+    public static Node deleteDuplicated2(Node head){
+        Node newHead = new Node(1);
+        newHead.next = head;
+
+        return newHead.next;
+    }
     public static void main(String[] args) {
+        Node head = new Node(1);
+        Node n1 = new Node(2);
+        Node n2 = new Node(2);
+        Node n3 = new Node(3);
+        Node n4 = new Node(3);
+        Node n5 = new Node(4);
+        head.next = n1;
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+        n5.next = null;
+        deleteDuplicated1(head);
 
     }
 }
