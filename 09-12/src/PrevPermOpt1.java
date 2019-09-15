@@ -20,24 +20,29 @@ public class PrevPermOpt1 {
         if(i == 0){
             return A;
         }
-        int k1 = i - 1;//需要交换的第一个数字的下标
-        int max = i;//需要交换的第二个数字的临时下标
-        int j = 0;
+        int num1 = i - 1;//需要交换的第一个数字的下标
+        int j = 0;// 需要交换的第二个数字的下标
         for( j = i;j < A.length ;j++){
-            if(A[j] < A[k1] && A[j] > A[max] ){
-                max = j;
+            if(A[j] < A[num1] && A[j] > A[i] ){
+                i = j;
             }
         }
-        int t = A[k1];
-        A[k1] = A[max];
-        A[max] = t;
+        int t = A[num1];
+        A[num1] = A[i];
+        A[i] = t;
         return A;
     }
     public static void main(String[] args) {
         int[] A = {1,1,5};
+        int[] B = {1,9,4,6,7};
         prevPermOpt1(A) ;
-            for(int i = 0;i < A.length;i++){
-            System.out.println(A[i]);
+        prevPermOpt1(B) ;
+        for(int i = 0;i < A.length;i++){
+            System.out.print(A[i]+" ");
+        }
+        System.out.println();
+        for(int i = 0;i < B.length;i++){
+            System.out.print(B[i] + " ");
         }
     }
 }
