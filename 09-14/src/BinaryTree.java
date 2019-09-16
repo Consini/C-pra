@@ -41,7 +41,7 @@ public class BinaryTree {
         c.right = g;
         return a;
     }
-    //前序遍历1:递归
+    //前序遍历1:遍历思路
     public static void preorderTraversal1(Node root){
         if(root == null){
             return ;
@@ -61,7 +61,7 @@ public class BinaryTree {
         list.addAll(preorderTraversal2(root.right));
         return list;
     }
-    //中序遍历1:递归
+    //中序遍历1:遍历思路
     public static void inorderTraversal1(Node root){
         if(root == null){
             return;
@@ -81,7 +81,7 @@ public class BinaryTree {
         list.addAll(inorderTraversal2(root.right));
         return list;
     }
-    // 后序遍历1:递归
+    // 后序遍历1:遍历思路
     public static void postorderTraversal1(Node root){
         if(root == null){
             return;
