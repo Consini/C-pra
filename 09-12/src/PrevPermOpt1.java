@@ -34,7 +34,7 @@ public class PrevPermOpt1 {
     }
     public static void main(String[] args) {
         int[] A = {1,1,5};
-        int[] B = {1,9,4,6,7};
+        int[] B = {9,4,3,8,2,3,4,5,6,7,7,8};
         prevPermOpt1(A) ;
         prevPermOpt1(B) ;
         for(int i = 0;i < A.length;i++){
