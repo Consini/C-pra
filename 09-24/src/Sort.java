@@ -18,7 +18,7 @@ public class Sort {
                 //条件：如果 j 到达第一个位置表示这个数就是最小的，如果 key >= array[j] 就不用进行处理
                 array[j + 1] = array[j];
             }
-            array[j + 1] = key;// 将 key 值放到他该在的位置
+            array[j + 1] = key;//由于上面j--， 此时 j 的位置是key值正确位置的前一个，所以要+1，将 key 值放到他该在的位置
         }
     }
 
@@ -105,10 +105,10 @@ public class Sort {
     }
 
     // 堆排序
-    public static void heapSort(int[] array){
+    public static void heapSort(int[] array){// 4 3 2 1
         createHeapBig(array);
         for(int i = 0;i < array.length - 1;i++){
-            swap(array,0,array.length - 1- i);
+            swap(array,0,array.length - 1 - i);
             shiftDownBig(array,0,array.length - 1 - i);
         }
     }
@@ -148,14 +148,14 @@ public class Sort {
     }
 
     public static void main(String[] args) {
-        int[] a = {3,6,9,1,2,31,0,2};//数组复制 int[] b = a.clone()
+        int[] a = {4,3,2,1};//数组复制 int[] b = a.clone()
         System.out.println(Arrays.toString(a));
 //        insertSort(a);
 //        shellSort(a);
 //        selectSort1(a);
 //        selectSort2(a);
 //        selectSortOP(a);
-//        heapSort(a);
+        heapSort(a);
 //        bubbleSort(a);
         System.out.println(Arrays.toString(a));
     }
