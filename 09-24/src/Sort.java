@@ -22,6 +22,27 @@ public class Sort {
         }
     }
 
+    // 折半插入排序
+    public static void binaryInsertSort(int[] array){
+        for(int i = 1;i < array.length;i++){
+            int key = array[i];
+            int left = 0;
+            int right = i;
+            while(left < right){
+                int mid = (left + right) / 2;
+                if(key >= array[mid]){
+                    left = mid + 1;
+                }else{
+                    right = mid;
+                }
+            }
+            for(int j = i;j > left;j--){
+                array[j] = array[j - 1];
+            }
+            array[left] = key;
+        }
+    }
+
     // 希尔排序:分组对数据进行预处理
     public static void shellSort(int[] array){
         int gap = array.length;
@@ -138,25 +159,32 @@ public class Sort {
 
     // 冒泡排序:相邻数比较，将大的放在后面
     public static void bubbleSort(int[] array){
-        for(int i = 0;i < array.length - 1;i++){
-            for(int j = 0;j < array.length - i - 1;j++){
-                if(array[j] > array[j + 1]){
-                    swap(array,j,j + 1);
+        for (int i = 0; i < array.length - 1; i++) {
+            boolean isSorted = true;
+            for (int j = 0; j < array.length - i - 1; j++) {
+                // 相等不交换，保证稳定性
+                if (array[j] > array[j + 1]) {
+                    swap(array, j, j + 1);
+                    isSorted = false;
                 }
+            }
+            if (isSorted) {
+                break;
             }
         }
     }
 
     public static void main(String[] args) {
-        int[] a = {4,3,2,1};//数组复制 int[] b = a.clone()
+        int[] a = {3,0,7,1,8,6,9,2,4,9};//数组复制 int[] b = a.clone()
         System.out.println(Arrays.toString(a));
 //        insertSort(a);
+        binaryInsertSort(a);
 //        shellSort(a);
 //        selectSort1(a);
 //        selectSort2(a);
 //        selectSortOP(a);
-        heapSort(a);
-//        bubbleSort(a);
+//        heapSort(a);
+        bubbleSort(a);
         System.out.println(Arrays.toString(a));
     }
 }
