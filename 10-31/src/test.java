@@ -92,7 +92,7 @@ public class test {
 
 
 
-        //System.out.println(test4(100));//100-->2839
+        //System.out.println(test4(100));
         //System.out.println(test2());
         //System.out.println(getNum(20190324));//数据溢出,保留后四位即可
     }
