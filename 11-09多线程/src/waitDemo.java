@@ -35,5 +35,8 @@ public class waitDemo {
         synchronized (object){
             object.notify();
         }
+        //打印0- 9
+        //输入一个东西
+        //打印100-109
     }
 }
