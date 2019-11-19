@@ -6,7 +6,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 
 public class UseBlockingQueue {
     private static BlockingQueue<String> queue = new ArrayBlockingQueue<>(1);
-            // new PriorityBlockingQueue<>();
+            // new PriorityBlockingQueue<>();优先级阻塞队列，背后的数据结构是堆
             // new LinkedBlockingQueue<>();
             // new ArrayBlockingQueue<>(10);
 
