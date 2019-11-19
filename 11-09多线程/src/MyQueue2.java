@@ -20,7 +20,8 @@ public class MyQueue2 {
             }
             // 这里保证，size 一定是 < array.length 的
             synchronized (this) {   // 持续时间很久
-                if (size == array.length) {
+                if (size == array.length) {// 由于持续时间很久，之前满足上面条件，但还没执行
+                    // 下面代码就被调度出去，回来时可能 size 依旧等于 array.length，所以需要重新判断       
                     continue;
                 }
                 array[rear] = message;
