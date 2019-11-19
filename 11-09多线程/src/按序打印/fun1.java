@@ -9,7 +9,9 @@ package 按序打印;
 public class fun1 {
     private static class Foo {
         private static int n = 0;
-        public void one() {//只有 n == 0 才继续执行，不为 0 是就退出，然后继续抢锁进行判断
+        // 虽然 n 不为 0，但不让出 CPU，导致 n 无法及时变化。每次都是等到时间片到
+        // 加锁 ——>
+        public void one() {//只有 n == 0 才继续执行，不为 0 时就退出，然后继续抢锁进行判断
             synchronized (this) {
                 if (n != 0) {
                     return;
