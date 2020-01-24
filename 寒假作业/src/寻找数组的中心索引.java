@@ -5,25 +5,20 @@
  **/
 public class 寻找数组的中心索引 {
     public static int pivotIndex(int[] nums) {
-        if(nums.length < 3){
-            return -1;
+        int sum=0,left=0;
+        for(int i=0;i < nums.length;i++){
+            sum+=nums[i];
         }
-        int i = 0,j = nums.length - 1,left = nums[i],right = nums[j];
-        while(i < j){
-            if(left == right && i+2 == j){
-                return i+1;
-            }else if(left < right){
-                i++;
-                left += nums[i];
-            }else{
-                j--;
-                right += nums[j];
+        for(int i=0;i<nums.length;i++){
+            if(left*2==sum-nums[i]){
+                return i;
             }
+            left+=nums[i];
         }
         return -1;
     }
     public static void main(String[] args) {
-        int[] a = {-1,-1,-1,-1,-1,0};
-        System.out.println(pivotIndex(a));
+        int[] a = {-1,-1,-1,0,-1,-1};
+        //System.out.println(pivotIndex(a));
     }
 }
