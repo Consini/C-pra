@@ -5,7 +5,7 @@ import java.util.*;
  * @Author K
  * @Date 2020/1/14 19:07
  **/
-public class Solution {
 
+public class Solution {
 
 }
