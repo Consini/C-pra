@@ -6,8 +6,6 @@ import java.util.*;
  * @Date 2020/2/1 11:48
  **/
 public class 长键按入 {
-    /*name = "saeed", typed = "ssaaedd"   输出：false
-      name = "alex", typed = "aaleex"     输出：true*/
     static class Group{
         String key;
         List<Integer> value;
@@ -46,22 +44,27 @@ public class 长键按入 {
             return false;
         }
         int i = 1,j = 1;
-        while(i < name.length() && j < typed.length()){
+        while(i < name.length()){
             if(name.charAt(i) == typed.charAt(j)){
                 i++;
                 j++;
+                //若 typed 遍历到最后但 name 还没有，说明不匹配
+                if(j == typed.length() && !(i == name.length())){
+                    return false;
+                }
             }else if(typed.charAt(j) == name.charAt(i-1)){
                 while(typed.charAt(j) == name.charAt(i-1)){
                     j++;
+                    //若 j 一直自增直到末尾，说明不匹配。如 "sabc" 与 "saaaa"
                     if(j == typed.length()){
-                        break;
+                        return false;
                     }
                 }
             }else {
                 return false;
             }
         }
-        return i == typed.length();
+        return true;
     }
     public static void main(String[] args) {
         String name = "saeed", typed = "ssaaeedd";
@@ -80,7 +83,7 @@ public class 长键按入 {
         System.out.println(isLongPressedName(name,typed));
         System.out.println(isLongPressedName2(name,typed));
         name = "saeed";
-        typed = "saeeeeeedddd";
+        typed = "saeeeeee";
         System.out.println(isLongPressedName(name,typed));
         System.out.println(isLongPressedName2(name,typed));
     }
