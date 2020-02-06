@@ -6,6 +6,3 @@ import java.util.*;
  * @Date 2020/1/14 19:07
  **/
 
-public class Solution {
-
-}
