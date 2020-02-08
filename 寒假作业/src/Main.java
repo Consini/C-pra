@@ -15,7 +15,7 @@ public class Main {
             if(!list.contains(ransomNote.charAt(i))){
                 return false;
             }
-            list.remove(list.indexOf(ransomNote.charAt(i)));
+            list.remove(ransomNote.charAt(i));
         }
         return true;
     }
